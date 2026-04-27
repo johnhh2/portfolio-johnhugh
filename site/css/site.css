@@ -98,7 +98,7 @@ hr.divider {
 	margin: 0 0 3rem;
 }
 
-.no-margin { margin: 0; }
+.no-margin { margin: 0 !important; }
 
 .sections { display: flex; flex-direction: column; gap: 2rem; }
 article.section-card h2 {
