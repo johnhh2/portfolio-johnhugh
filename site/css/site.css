@@ -119,6 +119,22 @@ article.section-card p {
 	margin: 0;
 }
 
+/* ---------- hero bio ---------- */
+.hero-bio {
+	margin-bottom: 3rem;
+}
+.hero-bio p {
+	font-size: 1.0625rem;
+	line-height: 1.75;
+	color: var(--muted);
+	margin: 0 0 1rem;
+}
+.hero-bio p:last-child { margin-bottom: 0; }
+.hero-bio p:first-child {
+	font-size: 1.125rem;
+	color: var(--fg);
+}
+
 /* ---------- sub-pages ---------- */
 a.back {
 	display: inline-flex;
