@@ -2,8 +2,8 @@
 	--bg: #0d1117;
 	--surface: #161b22;
 	--fg: #e6edf3;
-	--accent: #22d3ee;
-	--accent-hover: #67e8f9;
+	--accent: #F1502F;
+	--accent-hover: #f47358;
 	--muted: #8b949e;
 	--border: #21262d;
 }
@@ -43,7 +43,7 @@ header.home { margin-bottom: 4rem; }
 	height: 8rem;
 	border-radius: 50%;
 	border: 4px solid var(--accent);
-	box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.35);
+	box-shadow: 0 10px 30px -10px rgba(241, 80, 47, 0.35);
 	margin-bottom: 1.5rem;
 	background: var(--surface);
 	object-fit: cover;
