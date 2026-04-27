@@ -119,6 +119,40 @@ article.section-card p {
 	margin: 0;
 }
 
+/* ---------- about page ---------- */
+.about-hero {
+	display: grid;
+	grid-template-columns: 12rem 1fr;
+	gap: 2rem;
+	align-items: start;
+	margin-bottom: 2.5rem;
+}
+.about-headshot {
+	aspect-ratio: 3 / 4;
+	border-radius: 0.75rem;
+}
+.about-hobby {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	align-items: center;
+}
+.about-ski {
+	aspect-ratio: 4 / 3;
+	border-radius: 0.75rem;
+}
+.about-hobby p.prose {
+	font-size: 1.0625rem;
+	line-height: 1.75;
+	color: var(--muted);
+	margin: 0;
+}
+@media (max-width: 640px) {
+	.about-hero { grid-template-columns: 1fr; }
+	.about-headshot { aspect-ratio: 1 / 1; width: 10rem; }
+	.about-hobby { grid-template-columns: 1fr; }
+}
+
 /* ---------- hero bio ---------- */
 .hero-bio {
 	margin-bottom: 3rem;
