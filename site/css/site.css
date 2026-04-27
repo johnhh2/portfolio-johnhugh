@@ -97,6 +97,9 @@ hr.divider {
 	border-top: 1px solid var(--border);
 	margin: 0 0 3rem;
 }
+
+.no-margin { margin: 0; }
+
 .sections { display: flex; flex-direction: column; gap: 2rem; }
 article.section-card h2 {
 	font-family: 'Newsreader', serif;
