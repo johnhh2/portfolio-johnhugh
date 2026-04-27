@@ -21,9 +21,9 @@
 		<header class="page">
 			<h1 class="page-title">Home Security &amp; Automation System</h1>
 			<p class="project-summary">
-				A self-hosted, privacy-first security stack built on consumer hardware —
-				cloud used only for offsite backup. Covers surveillance, AI-powered
-				person detection, redundant storage, network-wide threat blocking, remote
+				A self-hosted, privacy-first security stack built on consumer hardware.
+				Cloud used only for offsite backup. Covers surveillance, AI-powered
+				person detection, redundant storage, network-wide threat blocking, secure remote
 				access, and active threat monitoring.
 			</p>
 			<div class="project-tech" style="margin-top:1rem;">
@@ -45,8 +45,8 @@
 			<p>
 				Four Raspberry Pi Zero 2 W units, each fitted with a camera module and weatherproof
 				enclosure, stream continuous footage to a NAS with a RAM upgrade for improved
-				throughput. Recordings are backed up locally on the NAS with a secondary offsite
-				backup for redundancy.
+				throughput. Motion events are immediately uploaded onto an offsite backup for redundancy.
+				For offsite camera storage backup I went with Synology C2 Storage because it had plans specifically for unlimited camera motion events which were quite affordable (under $50 a year).
 			</p>
 			<div class="photo-grid photo-grid--2">
 				<img class="project-photo" src="img/picam.jpg" alt="Pi Zero 2 W with camera module inside weatherproof enclosure">
@@ -60,7 +60,7 @@
 			<p>
 				A Google Coral USB TPU accelerates on-device inference for real-time person detection
 				via Frigate NVR, keeping all video processing local with zero cloud dependency.
-				Alerts trigger only on confirmed person events, dramatically reducing false positives.
+				Events are relayed to the Surveillance and home automation software to mark person detections on the timeline, trigger a local network chime, and send mobile notifcations.
 			</p>
 			<div class="photo-grid photo-grid--2">
 				<img class="project-photo" src="img/tpu.jpg" alt="Google Coral USB TPU accelerator">
@@ -75,7 +75,7 @@
 				Pi-hole runs as the local DNS server for the entire network, blocking ads, trackers,
 				and known malicious domains at the DNS layer before any device makes a connection.
 				Paired with curated blocklists and a custom allowlist, it covers every device on the
-				LAN without per-device configuration.
+				LAN without per-device configuration. Hosted on a rasperry pi zero 2 W with a Ethernet HAT for minimal DNS delay.
 			</p>
 			<div class="photo-grid photo-grid--1">
 				<img class="project-photo" src="img/pihole-dashboard.png" alt="Pi-hole dashboard showing 167,843 total queries with 5% blocked">
@@ -86,29 +86,32 @@
 		<div class="project-subsection">
 			<h3>Remote Access via DDNS &amp; Reverse Proxy</h3>
 			<p>
-				A dynamic DNS record keeps the home IP reachable under a stable hostname. An Nginx
-				reverse proxy with HTTPS termination (Let&rsquo;s Encrypt) fronts the camera dashboard
-				and home automation interface, exposing them securely over the public internet without
+				Using a DDNS server, reverse proxy https, and authenticated logins; the NAS exposes the camera dashboard
+				and home automation interface publicly, securely exposing them over the internet without
 				opening raw ports to internal services.
 			</p>
-			<div class="photo-grid photo-grid--1">
-				<div class="photo-placeholder"><span>Reverse proxy &amp; HTTPS setup</span></div>
-			</div>
 		</div>
 
 		<!-- Honeypot & Packet Monitoring -->
 		<div class="project-subsection">
 			<h3>Honeypot &amp; Passive Packet Monitoring</h3>
 			<p>
-				A dedicated Raspberry Pi runs both a honeypot server to detect and log unauthorized
-				access attempts and a passive packet monitoring daemon that taps all network equipment,
+				A dedicated Raspberry Pi 4 runs both a honeypot server to detect and log unauthorized
+				access attempts and a passive packet monitoring daemon that taps all wired network equipment through port mirroring,
 				surfacing anomalous traffic patterns and lateral movement attempts before they reach
 				production devices. Pairs with Pi-hole DNS logs for a unified threat picture.
+				Alerts are sent via a local MQTT server and logged in Home Assistant where an automation sends it as a mobile notifications to my phone.
 			</p>
-			<div class="photo-grid photo-grid--2">
-				<div class="photo-placeholder"><span>Honeypot alert log</span></div>
-				<div class="photo-placeholder"><span>Packet monitor dashboard</span></div>
-			</div>
+		</div>
+
+		<!-- Configuration and log backups -->
+		<div class="project-subsection">
+			<h3>Daily Backups</h3>
+			<p>
+				Home Assistant is configured to use a MariaDB SQL database to allow easy backups.
+				This database along with all NAS and docker container configurations (and some selected logs) are backed up daily onto a local external SSD and offsite S3 object storage.
+				For offsite backups, since my backup size was small, I was able to go with the free tier of BackBlaze B2 Storage.
+			</p>
 		</div>
 	</main>
 
