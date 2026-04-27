@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Security &amp; Automation System — John-Hugh Hedrick</title>
+<meta name="description" content="Self-hosted home security system with AI detection, NAS storage, Pi-hole, DDNS remote access, and honeypot monitoring.">
+<meta name="theme-color" content="#0d1117">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+	<main>
+		<a class="back" href="/projects/">
+			<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+			Projects
+		</a>
+
+		<header class="page">
+			<h1 class="page-title">Home Security &amp; Automation System</h1>
+			<p class="project-summary">
+				A self-hosted, privacy-first security stack built on consumer hardware —
+				no cloud subscriptions, no vendor lock-in. Covers surveillance, AI-powered
+				person detection, redundant storage, network-wide threat blocking, remote
+				access, and active threat monitoring.
+			</p>
+			<div class="project-tech" style="margin-top:1rem;">
+				<span class="tech-tag">Raspberry Pi</span>
+				<span class="tech-tag">NAS</span>
+				<span class="tech-tag">Pi-hole</span>
+				<span class="tech-tag">Coral TPU</span>
+				<span class="tech-tag">Frigate</span>
+				<span class="tech-tag">DDNS</span>
+				<span class="tech-tag">Nginx</span>
+				<span class="tech-tag">Linux</span>
+				<span class="tech-tag">Docker</span>
+			</div>
+		</header>
+
+		<!-- Camera System -->
+		<div class="project-subsection">
+			<h3>Camera System &amp; NAS Storage</h3>
+			<p>
+				Four Raspberry Pi Zero 2 W units, each fitted with a camera module and weatherproof
+				enclosure, stream continuous footage to a NAS with a RAM upgrade for improved
+				throughput. Recordings are backed up locally on the NAS with a secondary offsite
+				backup for redundancy.
+			</p>
+			<div class="photo-grid photo-grid--2">
+				<div class="photo-placeholder"><span>Pi Zero 2 W camera enclosure</span></div>
+				<div class="photo-placeholder"><span>NAS setup &amp; drives</span></div>
+				<div class="photo-placeholder"><span>Camera mounting &amp; coverage</span></div>
+				<div class="photo-placeholder"><span>Backup storage overview</span></div>
+			</div>
+		</div>
+
+		<!-- AI Detection -->
+		<div class="project-subsection">
+			<h3>AI Person Detection</h3>
+			<p>
+				A Google Coral USB TPU accelerates on-device inference for real-time person detection
+				via Frigate NVR, keeping all video processing local with zero cloud dependency.
+				Alerts trigger only on confirmed person events, dramatically reducing false positives.
+			</p>
+			<div class="photo-grid photo-grid--2">
+				<div class="photo-placeholder"><span>Coral TPU &amp; host hardware</span></div>
+				<div class="photo-placeholder"><span>Frigate detection UI</span></div>
+			</div>
+		</div>
+
+		<!-- Pi-hole -->
+		<div class="project-subsection">
+			<h3>Network-wide Ad &amp; Threat Blocking</h3>
+			<p>
+				Pi-hole runs as the local DNS server for the entire network, blocking ads, trackers,
+				and known malicious domains at the DNS layer before any device makes a connection.
+				Paired with curated blocklists and a custom allowlist, it covers every device on the
+				LAN without per-device configuration.
+			</p>
+			<div class="photo-grid photo-grid--2">
+				<div class="photo-placeholder"><span>Pi-hole dashboard &amp; query stats</span></div>
+				<div class="photo-placeholder"><span>Network topology diagram</span></div>
+			</div>
+		</div>
+
+		<!-- Remote Access -->
+		<div class="project-subsection">
+			<h3>Remote Access via DDNS &amp; Reverse Proxy</h3>
+			<p>
+				A dynamic DNS record keeps the home IP reachable under a stable hostname. An Nginx
+				reverse proxy with HTTPS termination (Let&rsquo;s Encrypt) fronts the camera dashboard
+				and home automation interface, exposing them securely over the public internet without
+				opening raw ports to internal services.
+			</p>
+			<div class="photo-grid photo-grid--1">
+				<div class="photo-placeholder"><span>Reverse proxy &amp; HTTPS setup</span></div>
+			</div>
+		</div>
+
+		<!-- Honeypot & Packet Monitoring -->
+		<div class="project-subsection">
+			<h3>Honeypot &amp; Passive Packet Monitoring</h3>
+			<p>
+				A dedicated Raspberry Pi runs both a honeypot server to detect and log unauthorized
+				access attempts and a passive packet monitoring daemon that taps all network equipment,
+				surfacing anomalous traffic patterns and lateral movement attempts before they reach
+				production devices. Pairs with Pi-hole DNS logs for a unified threat picture.
+			</p>
+			<div class="photo-grid photo-grid--2">
+				<div class="photo-placeholder"><span>Honeypot alert log</span></div>
+				<div class="photo-placeholder"><span>Packet monitor dashboard</span></div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site">
+		<div class="inner">
+			<p>&copy; 2026 John-Hugh Hedrick</p>
+			<nav>
+				<a href="https://github.com/johnhh2" target="_blank" rel="noopener noreferrer">GitHub</a>
+				<a href="https://www.linkedin.com/in/john-hugh-hedrick/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+			</nav>
+		</div>
+	</footer>
+</body>
+</html>
