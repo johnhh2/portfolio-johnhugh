@@ -414,6 +414,14 @@ p.empty { color: var(--muted); font-style: italic; }
 	object-fit: cover;
 	border-radius: 0.375rem;
 }
+img.project-photo {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+	border: 1px solid var(--border);
+	display: block;
+	object-fit: cover;
+}
 @media (max-width: 640px) {
 	.photo-grid--2 { grid-template-columns: 1fr; }
 }
