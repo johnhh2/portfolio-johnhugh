@@ -128,8 +128,13 @@ article.section-card p {
 	margin-bottom: 2.5rem;
 }
 .about-headshot {
+	width: 100%;
 	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	object-position: top;
 	border-radius: 0.75rem;
+	border: 1px solid var(--border);
+	display: block;
 }
 .about-hobby {
 	display: grid;
