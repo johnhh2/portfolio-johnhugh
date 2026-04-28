@@ -121,20 +121,21 @@ article.section-card p {
 
 /* ---------- about page ---------- */
 .about-hero {
-	display: grid;
-	grid-template-columns: 12rem 1fr;
+	display: flex;
+	flex-direction: row;
 	gap: 2rem;
 	align-items: start;
 	margin-bottom: 2.5rem;
 }
 .about-headshot {
-	width: 100%;
+	width: 12rem;
 	aspect-ratio: 3 / 4;
 	object-fit: cover;
 	object-position: top;
 	border-radius: 0.75rem;
 	border: 1px solid var(--border);
 	display: block;
+	flex-shrink: 0;
 }
 .about-hobby {
 	display: grid;
